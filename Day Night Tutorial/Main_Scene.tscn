@@ -1,0 +1,331 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Wall.png" type="Texture" id=2]
+[ext_resource path="res://Main_Scene_Scripy.gd" type="Script" id=3]
+[ext_resource path="res://Grass.png" type="Texture" id=4]
+[ext_resource path="res://Bush.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Stone.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 434, 69.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 66, 511.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 434, 71.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 84.0898, 542.429 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="BackGround" type="Sprite" parent="."]
+modulate = Color( 0.0313726, 1, 0, 1 )
+show_behind_parent = true
+position = Vector2( 51.0836, 11.5565 )
+scale = Vector2( 2.25717, 2.70733 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Up wall" type="Sprite" parent="."]
+position = Vector2( 15.2204, -379.669 )
+scale = Vector2( 1.54508, 0.29416 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Downwall" type="Sprite" parent="."]
+position = Vector2( 13.9998, 459.13 )
+scale = Vector2( 1.18404, 0.30019 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left Wall" type="Sprite" parent="."]
+position = Vector2( 422.242, 82.0589 )
+scale = Vector2( 0.28409, 1.82838 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -418.787, 72 )
+scale = Vector2( 0.193679, 1.8625 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -14, -372 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -422, 78 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -8, 460 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 415.91, 88.9289 )
+shape = SubResource( 4 )
+
+[node name="Day_NIght_Cycle" type="Node" parent="."]
+
+[node name="Dawn" type="Timer" parent="Day_NIght_Cycle"]
+wait_time = 10.0
+
+[node name="Morning" type="Timer" parent="Day_NIght_Cycle"]
+wait_time = 20.0
+
+[node name="Dusk" type="Timer" parent="Day_NIght_Cycle"]
+wait_time = 10.0
+
+[node name="Night" type="Timer" parent="Day_NIght_Cycle"]
+wait_time = 20.0
+
+[node name="World" type="YSort" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+current = true
+smoothing_speed = 2.0
+
+[node name="Tree" type="YSort" parent="World"]
+
+[node name="StaticBody2D" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( -270.115, 32.5269 )
+
+[node name="StaticBody2D2" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( -116.115, 190.527 )
+
+[node name="StaticBody2D3" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 143.885, 150.527 )
+
+[node name="StaticBody2D4" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 241.885, -13.4731 )
+
+[node name="StaticBody2D5" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 91.8852, -139.473 )
+
+[node name="StaticBody2D6" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( -130.115, -185.473 )
+
+[node name="StaticBody2D7" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( -148.115, -13.4731 )
+
+[node name="StaticBody2D8" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 147.885, 352.527 )
+
+[node name="StaticBody2D9" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( -236.115, 288.527 )
+
+[node name="StaticBody2D10" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 291.885, 208.527 )
+
+[node name="StaticBody2D11" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 281.885, -105.473 )
+
+[node name="StaticBody2D12" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( 223.885, -265.473 )
+
+[node name="StaticBody2D13" parent="World/Tree" instance=ExtResource( 6 )]
+position = Vector2( -248.115, -169.473 )
+
+[node name="Bush" type="YSort" parent="World"]
+
+[node name="Bush" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -103.591, 39.2444 )
+
+[node name="Bush2" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 134.409, 229.244 )
+
+[node name="Bush3" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 218.409, -156.756 )
+
+[node name="Bush4" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 160.409, -176.756 )
+
+[node name="Bush5" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 216.409, -196.756 )
+
+[node name="Bush6" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 168.409, -210.756 )
+
+[node name="Bush7" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -319.591, -244.756 )
+
+[node name="Bush8" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -263.591, -234.756 )
+
+[node name="Bush9" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -295.591, -186.756 )
+
+[node name="Bush10" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -217.591, -178.423 )
+
+[node name="Bush11" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -217.591, -230.423 )
+
+[node name="Bush12" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -291.591, 211.577 )
+
+[node name="Bush13" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -147.591, 251.577 )
+
+[node name="Bush14" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -5.59116, 173.577 )
+
+[node name="Bush15" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 246.409, 125.577 )
+
+[node name="Bush16" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 126.409, 9.57716 )
+
+[node name="Bush17" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -5.59116, -86.4228 )
+
+[node name="Bush18" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -89.5912, -72.4228 )
+
+[node name="Bush19" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -255.591, -44.4228 )
+
+[node name="Bush20" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 230.409, 315.577 )
+
+[node name="Bush21" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 34.4088, 331.577 )
+
+[node name="Bush22" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -109.591, 331.577 )
+
+[node name="Bush23" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -267.591, 353.577 )
+
+[node name="Bush24" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -327.559, 303.312 )
+
+[node name="Bush25" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( 58.4407, -268.688 )
+
+[node name="Bush26" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -63.5593, -252.688 )
+
+[node name="Bush27" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -229.559, 113.312 )
+
+[node name="Bush28" parent="World/Bush" instance=ExtResource( 5 )]
+position = Vector2( -229.559, 113.312 )
+
+[node name="Stone" type="YSort" parent="World"]
+
+[node name="StaticBody2D" parent="World/Stone" instance=ExtResource( 7 )]
+position = Vector2( -2.5, 92 )
+
+[node name="StaticBody2D2" parent="World/Stone" instance=ExtResource( 7 )]
+position = Vector2( 194.076, -80.534 )
+
+[node name="StaticBody2D3" parent="World/Stone" instance=ExtResource( 7 )]
+position = Vector2( -152.407, -261.553 )
+
+[node name="StaticBody2D4" parent="World/Stone" instance=ExtResource( 7 )]
+position = Vector2( 243.573, 268.777 )
+
+[node name="StaticBody2D5" parent="World/Stone" instance=ExtResource( 7 )]
+position = Vector2( -49.169, 343.73 )
+
+[node name="StaticBody2D6" parent="World/Stone" instance=ExtResource( 7 )]
+position = Vector2( -309.384, 125.941 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 155.21, 92.631 )
+
+[node name="Dawn" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+margin_left = 112.5
+margin_top = -81.0
+margin_right = 172.5
+margin_bottom = -41.0
+text = "Dawn"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Morning" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+margin_left = 118.51
+margin_top = -82.4142
+margin_right = 178.51
+margin_bottom = -42.4142
+text = "day
+"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Dusk" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+margin_left = 113.914
+margin_top = -79.9393
+margin_right = 173.914
+margin_bottom = -39.9393
+text = "Dusk
+"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Night" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+margin_left = 113.914
+margin_top = -79.9393
+margin_right = 173.914
+margin_bottom = -39.9393
+text = "Night"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="CanvasLayer/Control"]
+modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( 131.153, -74.0815 )
+scale = Vector2( 0.0776642, 0.0476741 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background2" type="Sprite" parent="CanvasLayer/Control"]
+show_behind_parent = true
+position = Vector2( 130.528, -73.4565 )
+scale = Vector2( 0.0672796, 0.0331741 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="timeout" from="Day_NIght_Cycle/Dawn" to="." method="_on_Dawn_timeout"]
+[connection signal="timeout" from="Day_NIght_Cycle/Morning" to="." method="_on_Morning_timeout"]
+[connection signal="timeout" from="Day_NIght_Cycle/Dusk" to="." method="_on_Dusk_timeout"]
+[connection signal="timeout" from="Day_NIght_Cycle/Night" to="." method="_on_Night_timeout"]
